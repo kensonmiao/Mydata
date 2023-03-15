@@ -1,0 +1,19 @@
+{
+  "name": "nodejsmydata",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "request": "^2.88.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://codeberg.org/kensonlogin55/mydata.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
