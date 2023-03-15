@@ -14,6 +14,6 @@ app.get('/getData', (req, res) => {
   });
 });
 
-app.listen(443, () => {
-  console.log('GetData API listening on port 443!');
+app.listen(3000, () => {
+  console.log('GetData API listening on port 3000!');
 });
