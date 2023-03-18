@@ -5,8 +5,24 @@ const port = process.env.PORT || 3000;
 
 app.get('/getData', (req, res) => {
   const url = Buffer.from(req.query.url, 'base64').toString('utf-8');
+  const headers = req.headers;
   console.log(`Start fetching data from ${url} ....`);
-  request.get(url, (error, response, body) => {
+  request.get({url, headers}, (error, response, body) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Error retrieving data');
+    } else {
+      res.send(body);
+    }
+  });
+});
+
+app.post('/getData', (req, res) => {
+  const url = Buffer.from(req.query.url, 'base64').toString('utf-8');
+  const headers = req.headers;
+  const body = req.body;
+
+  request.post({ url, headers, json: body }, (error, response, body) => {
     if (error) {
       console.error(error);
       res.status(500).send('Error retrieving data');
