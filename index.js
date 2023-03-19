@@ -8,7 +8,7 @@ app.get('/getData', (req, res) => {
   const headers = { ...req.headers };
   delete headers.host;
   headers['accept-encoding'] = 'identity';
-  console.log(`Start fetching data from ${url} ....`);
+  console.log(`Start fetching data from GET ${url} ....`);
   request.get({url, headers}, (error, response, body) => {
     if (error) {
       console.error(error);
@@ -26,8 +26,8 @@ app.post('/getData', (req, res) => {
   const headers = { ...req.headers };
   delete headers.host;
   headers['accept-encoding'] = 'identity';
-  const body = req.body;
-
+  const body = JSON.stringify(req.body);
+  console.log(`Start fetching data from POST ${url} ....`);
   request.post({ url, headers, json: body }, (error, response, body) => {
     if (error) {
       console.error(error);
